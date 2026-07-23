@@ -1,0 +1,44 @@
+If the interviewer asks:
+
+"Explain a DevOps project you have worked on."
+
+You can answer:
+
+"I worked on a production-ready CI/CD pipeline project where I automated the process of building, testing, and publishing a containerized web application.
+
+The source code is maintained in GitHub, and Jenkins is used as the CI/CD automation server. Whenever the pipeline runs, Jenkins first checks out the latest code from the GitHub repository.
+
+The pipeline then validates the required application files and builds a Docker image using an Nginx base image. After building the image, Jenkins starts a temporary Docker container and performs an automated HTTP health check using a curl container to verify that the application is running correctly.
+
+If the container test succeeds, Jenkins securely authenticates with Docker Hub using Jenkins Credentials and pushes both a build-number-based Docker image tag and the latest tag.
+
+Finally, the pipeline performs cleanup by removing the temporary test container and unused Docker build cache.
+
+I also used Terraform to define the AWS infrastructure as Infrastructure as Code. The Terraform configuration is maintained in the GitHub repository, although I did not deploy the infrastructure to AWS because the project was developed without an AWS account.
+
+The main technologies I used were Git, GitHub, Jenkins, Docker, Docker Hub, Terraform, AWS, and Nginx.
+
+This project helped me understand the complete CI/CD lifecycle, Docker containerization, Jenkins pipeline automation, secure credential management, automated application testing, and Infrastructure as Code."
+
+🔥 If they ask: "What was the biggest challenge?"
+
+Say:
+
+"One challenge I faced was during the container testing stage. Initially, Jenkins started the application container with a host port mapping, but the connectivity test from the Jenkins environment failed. I investigated the Docker networking behavior and changed the approach to run a temporary curl container in the same network namespace as the application container. This allowed me to test the application directly on port 80 inside the container. After implementing this change, the pipeline successfully validated the application and proceeded to push the Docker image."
+
+That's a very good real-world troubleshooting story because you can explain the problem, investigation, solution, and final result.
+
+Your project status
+
+✅ GitHub repository
+✅ Application code
+✅ Dockerfile
+✅ Docker image
+✅ Docker Hub publishing
+✅ Jenkins CI/CD pipeline
+✅ Automated container testing
+✅ Jenkins credentials
+✅ Terraform Infrastructure as Code
+✅ Architecture diagram
+✅ Jenkins pipeline screenshot
+✅ Professional README
